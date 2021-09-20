@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Request, Response } from 'express';
 import * as sinon from 'sinon';
-import { BadRequestException } from '../utils/exceptions';
+import { BadRequestException } from '../../utils/exceptions';
 import { formatReqValidator } from './format-req.validator';
 
 const standardBody = {

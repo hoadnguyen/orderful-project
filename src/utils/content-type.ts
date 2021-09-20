@@ -10,3 +10,16 @@ export const contentTypeFromFormat = (format: Format): string => {
     return 'application/xml';
   }
 };
+
+export const formatFromHeaderType = (contentType: string): Format | undefined => {
+  switch (contentType) {
+  case 'text/plain':
+    return Format.Delineated;
+  case 'application/json':
+    return Format.Json;
+  case 'application/xml':
+    return Format.Xml;
+  default:
+    return undefined;
+  }
+};

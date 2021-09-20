@@ -1,11 +1,11 @@
-import { json } from 'body-parser';
+import { text } from 'body-parser';
 import * as express from 'express';
 import { formatRouter } from './router/format.router';
 import { errorHandler } from './utils/error-handler';
 
 const app = express();
 
-app.use(json());
+app.use(text({ type: '*/*' }));
 app.use(formatRouter);
 app.use(errorHandler);
 

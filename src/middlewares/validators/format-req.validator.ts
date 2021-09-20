@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { Format } from '../enum/format';
-import { FormatOptions } from '../interfaces/format-options';
-import { BadRequestException } from '../utils/exceptions';
+import { Format } from '../../enum/format';
+import { FormatOptions } from '../../interfaces/format-options';
+import { BadRequestException } from '../../utils/exceptions';
 
 const validateOptions = (options: FormatOptions): void => {
   const { format, itemSeparator, lineSeparator } = options;

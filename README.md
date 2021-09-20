@@ -28,88 +28,33 @@ The command will bring up a local REST server running on `http://localhost:3000`
 POST http://localhost:3000/format
 ```
 
-#### Body Schema
+**Required Headers:**
 
-```json
-{
-  "from": {
-    "required": true,
-    "properties": {
-      "format": {
-        "type": "string",
-        "examples": [
-          "delineated"
-        ],
-        "required": true
-      },
-      "lineSeparator": {
-        "type": "string",
-        "examples": [
-          "~"
-        ],
-        "required": false
-      },
-      "itemSeparator": {
-        "type": "string",
-        "examples": [
-          "*"
-        ],
-        "required": false
-      }
-    }
-  },
-  "to": {
-    "required": true,
-    "properties": {
-      "format": {
-        "type": "string",
-        "examples": [
-          "json"
-        ],
-        "required": true
-      },
-      "lineSeparator": {
-        "type": "string",
-        "examples": [
-          "~"
-        ],
-        "required": false
-      },
-      "itemSeparator": {
-        "type": "string",
-        "examples": [
-          "*"
-        ],
-        "required": false
-      }
-    }
-  },
-  "document": {
-    "type": "string",
-    "examples": [
-      "ProductID* 4* 8* 15* 16*23~AddressID* 42* 108*3* 14 ~ContactID* 59* 26~"
-    ],
-    "required": true
-  }
-}
-```
+- `Content-Type` - indicates what format the document should be converted from
+  
+- `Accept` - indicates what format the document should be converted to.
+
+**Accepted types:**
+
+- `text/plain` - converts the document from/to Format #1
+  
+- `application/json` - converts the document from/to Format #2 (JSON)
+
+- `application/xml` - converts the document from/to Format #3 (XML)
+
+**Query**
+
+- `lineSeparator` - required when either `Content-Type` or `Accept` is `text/plain`.
+
+- `itemSeparator` - required when either `Content-Type` or `Accept` is `text/plain`.
 
 #### Examples
 
 ```bash
-curl --location --request POST 'http://localhost:3000/format' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "from": {
-        "format": "delineated",
-        "lineSeparator": "~",
-        "itemSeparator": "*"
-    },
-    "to": {
-        "format": "json"
-    },
-    "value": "ProductID* 4* 8* 15* 16*23~AddressID* 42* 108*3* 14 ~ContactID* 59* 26~"
-}'
+curl --location --request POST 'http://localhost:3000/format?itemSeparator=*&lineSeparator=~' \
+--header 'Accept: application/json' \
+--header 'Content-Type: text/plain' \
+--data-raw 'ProductID* 4* 8* 15* 16*23~AddressID* 42* 108*3* 14 ~ContactID* 59* 26~'
 ```
 
 ## Testing
