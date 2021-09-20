@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Oh, hey! You are here probably because you are among the team who will interview me on Tuesday :)
+Oh, hey! You are here probably because you are on the team who will interview me on Tuesday :)
 
 Great to e-meet you! I hope my code can speak a bit about myself.
 
