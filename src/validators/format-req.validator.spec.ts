@@ -13,7 +13,7 @@ const standardBody = {
   'to': {
     'format': 'json'
   },
-  'value': 'ProductID* 4* 8* 15* 16*23~AddressID* 42* 108*3* 14 ~ContactID* 59* 26~'
+  'document': 'ProductID* 4* 8* 15* 16*23~AddressID* 42* 108*3* 14 ~ContactID* 59* 26~'
 };
 
 describe('FormatRequestValidator', () => {

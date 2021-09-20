@@ -84,7 +84,7 @@ POST http://localhost:3000/format
       }
     }
   },
-  "value": {
+  "document": {
     "type": "string",
     "examples": [
       "ProductID* 4* 8* 15* 16*23~AddressID* 42* 108*3* 14 ~ContactID* 59* 26~"

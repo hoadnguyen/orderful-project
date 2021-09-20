@@ -21,15 +21,15 @@ const validateValue = (val: unknown): void => {
   if (typeof val === 'string' || val instanceof String) {
     return;
   }
-  throw new BadRequestException('Value must be a string');
+  throw new BadRequestException('document must be a string');
 };
 
 export const formatReqValidator = {
   validate: (req: Request, res: Response, next: NextFunction): void => {
-    const { from, to, value } = req.body;
+    const { from, to, document } = req.body;
     validateOptions(from);
     validateOptions(to);
-    validateValue(value);
+    validateValue(document);
 
     next();
   }

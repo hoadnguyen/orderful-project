@@ -7,8 +7,8 @@ const coreFormatter = new CoreFormatter();
 
 export const formatController = {
   format: (req: Request, res: Response): Response => {
-    const { from, to, value } = req.body as { from: FormatOptions, to: FormatOptions, value: string };
-    const doc = coreFormatter.parse(value, from);
+    const { from, to, document } = req.body as { from: FormatOptions, to: FormatOptions, document: string };
+    const doc = coreFormatter.parse(document, from);
     const result = coreFormatter.stringify(doc, to);
 
     const contentType = contentTypeFromFormat(to.format);
